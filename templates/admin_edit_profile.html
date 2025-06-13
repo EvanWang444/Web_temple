@@ -1,0 +1,25 @@
+{% extends 'admin_base.html' %}
+{% block title %}修改基本資料{% endblock %}
+{% block content %}
+<div class="mx-auto" style="max-width: 450px;">
+  <h2 class="text-center mb-4">修改基本資料</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">用戶名</label>
+      <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" readonly>
+    </div>
+    <div class="mb-3">
+      <label for="account" class="form-label">帳號</label>
+      <input type="account" class="form-control" id="account" name="account" value="{{ user.account }}" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">密碼</label>
+      <input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" required>
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+      <button type="submit" class="btn btn-primary">儲存</button>
+      <a href="{{ url_for('admin_welcome') }}" class="btn btn-secondary">離開</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

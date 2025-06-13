@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="text-center mb-5 fw-bold" style="color:#a52a2a;"> 最新公告</h2>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+    {% for ann in announcements %}
+      <div class="col">
+        <a href="{{ url_for('announcement_detail', announcement_id=ann.id) }}" class="text-decoration-none">
+          <div class="card border-0 shadow-sm announcement-card h-100 text-center">
+            {% if ann.image %}
+              <img src="{{ url_for('static', filename='uploads/' + ann.image) }}"
+                   class="card-img-top"
+                   style="height: 200px; object-fit: cover;">
+            {% else %}
+              <div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 200px;">
+                <span class="text-muted">無圖片</span>
+              </div>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title fw-bold text-dark">{{ ann.title }}</h5>
+              <p class="card-text text-muted">{{ ann.timestamp }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.announcement-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.announcement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+</style>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 封面圖區塊 -->
+<div class="cover-escape-wrapper">
+  <div class="cover-wrapper">
+    <div class="cover-blur"></div>
+    <div class="cover-center">
+      <img src="{{ url_for('static', filename='cover.jpg') }}" alt="台中 玉旨奉天宮 雷王殿" class="cover-img">
+    </div>
+  </div>
+</div>
+
+<!-- 主選單內容區 -->
+<div class="container mt-5">
+  <h1 class="text-center mb-4">收驚、問事、淨車說明</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- 問事報名 -->
+    <div class="col">
+      <div class="card h-100 border-success">
+        <div class="card-body">
+          <h5 class="card-title text-success text-center fw-bold">問事報名</h5>
+          <p class="card-text">
+            <strong>所需資料：</strong><br>
+            問事姓名、農曆生辰、居住地址<br><br>
+            本宮於每週五晚間 8:30 辦事，須提前報名，若報名人數不足 3 人即順延至下週。<br><br>
+            農曆七月與過年前後不辦事，屆時將公告確切日期。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 收驚預約 -->
+    <div class="col">
+      <div class="card h-100 border-success">
+        <div class="card-body">
+          <h5 class="card-title text-success text-center fw-bold">收驚預約</h5>
+          <p class="card-text">
+            <strong>所需資料：</strong><br>
+            收驚姓名、農曆生辰、居住地址<br><br>
+            須準備收驚者上衣一件。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 淨車預約 -->
+    <div class="col">
+      <div class="card h-100 border-success">
+        <div class="card-body">
+          <h5 class="card-title text-success text-center fw-bold">淨車預約</h5>
+          <p class="card-text">
+            <strong>所需資料：</strong><br>
+            車主姓名、農曆生辰、居住地址、汽機車車牌
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 統一說明區塊 -->
+  <div class="mt-5">
+    <div class="alert alert-warning border-start border-5 border-warning" role="alert">
+      <h5 class="fw-bold">預約注意事項</h5>
+      <p class="mb-0">
+        實際報名仍須至現場填寫資料，請務必先查詢所需資訊以利登記。
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

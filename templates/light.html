@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 封面圖區塊，強制貼頂 + 滿版 -->
+<div class="cover-escape-wrapper">
+  <div class="cover-wrapper">
+    <div class="cover-blur"></div>
+    <div class="cover-center">
+      <img src="{{ url_for('static', filename='cover.jpg') }}" alt="台中 玉旨奉天宮 雷王殿" class="cover-img">
+    </div>
+  </div>
+</div>
+
+<!-- container 內的內容 -->
+<div class="container mt-5">
+  <h1 class="text-center mb-4">安奉斗燈介紹</h1>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% set lights = [
+      ('太歲燈', '值年沖犯生肖，朝拜值年太歲，增福延壽、消災解厄保平安，每人300元'),
+      ('光明燈', '福慧增長，元神光彩，補運助氣，每人300元'),
+      ('財利燈', '祈求生意興隆，財源廣進，日日進財，月月有利，每人300元'),
+      ('文昌燈', '莘莘學子求功名，應試順利學業精，每人300元'),
+      ('平安斗燈', '祈請列位尊神加持護佑，以求年運平安順遂，財源廣進大吉大利，每人1600元'),
+      ('祭改「驅煞神」', '值年沖犯太歲、五鬼、白虎、天狗煞神，以儀式驅逐煞神，以保平安，每人1600元（若無特殊狀況僅可於每年農曆年前報名）')
+    ] %}
+
+    {% for title, description in lights %}
+    <div class="col">
+      <div class="card h-100 border-success">
+        <div class="card-body">
+          <h5 class="card-title text-success text-center fw-bold">{{ title }}</h5>
+          <p class="card-text">{{ description }}</p>
+          <p class="text-muted small mb-0">※ 報名方式請見下方說明</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- 統一報名說明區塊 -->
+  <div class="mt-5">
+    <div class="alert alert-warning border-start border-5 border-warning" role="alert">
+      <h5 class="fw-bold">報名方式說明</h5>
+      <p class="mb-0">
+        眾善信大德可預約並至玉旨奉天宮繳費，或至現場登記報名繳費，<br>
+        請祈福者附上姓名、農曆出生年月日以及住址。
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

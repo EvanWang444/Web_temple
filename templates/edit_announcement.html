@@ -1,0 +1,42 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="container py-4">
+  <h2>修改公告</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">標題</label>
+      <input type="text" name="title" class="form-control" value="{{ announcement.title }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">內容</label>
+      <textarea name="content" class="form-control" rows="5" required>{{ announcement.content }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">影像（可重新上傳）</label>
+      <input type="file" name="image" class="form-control">
+      {% if announcement.image %}
+        <p>目前圖片：<img src="{{ url_for('static', filename='uploads/' + announcement.image) }}" height="80"></p>
+      {% endif %}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">其他圖片（可選，多選）</label>
+      <input type="file" name="images" class="form-control" multiple accept="image/*,video/*">
+    </div>
+    <button type="submit" class="btn btn-primary">儲存修改</button>
+    {% if other_images %}
+      <div class="mb-3">
+        <label class="form-label">現有其他圖片</label><br>
+        {% for img in other_images %}
+          <div class="d-flex align-items-center mb-2" style="gap: 10px;">
+            <img src="{{ url_for('static', filename='uploads/' + img.filename) }}"
+              style="width: 150px; height: 100px; object-fit: cover;"
+              class="border rounded">
+            <a href="{{ url_for('delete_image', image_id=img.id, announcement_id=announcement.id) }}"
+              class="btn btn-sm btn-danger">刪除</a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}

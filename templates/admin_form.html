@@ -1,0 +1,56 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<style>
+    .container {
+        max-width: 1200px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+    }
+    .action-links a {
+        margin-right: 0.5rem;
+    }
+</style>
+
+<div class="container">
+    <h1 class="mb-4">表單管理</h1>
+    <a href="{{ url_for('create_form') }}" class="btn btn-primary mb-3">創建新表單</a>
+
+    {% if forms %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">標題</th>
+                    <th scope="col">描述</th>
+                    <th scope="col">創建時間</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for form in forms %}
+                <tr>
+                    <td>{{ form.title }}</td>
+                    <td>{{ form.description or '' }}</td>
+                    <td>{{ form.created_at }}</td>
+                    <td class="action-links">
+                        <a href="{{ url_for('form_dynamic', form_id=form.id) }}" class="btn btn-sm btn-outline-primary">表單連結</a>
+                        <a href="{{ url_for('admin_form_submissions', form_id=form.id) }}" class="btn btn-sm btn-outline-info">查看提交記錄</a>
+                        <a href="{{ url_for('delete_form', form_id=form.id) }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('確定要刪除此表單嗎？')">刪除</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        尚無自訂表單
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('admin_form_submissions') }}" class="btn btn-secondary mt-3">查看所有表單提交記錄</a>
+</div>
+{% endblock %}

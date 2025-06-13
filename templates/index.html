@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 封面圖區塊，強制貼頂 + 滿版 -->
+<div class="cover-escape-wrapper">
+  <div class="cover-wrapper">
+    <div class="cover-blur"></div>
+    <div class="cover-center">
+      <img src="{{ url_for('static', filename='cover.jpg') }}" alt="台中 玉旨奉天宮 雷王殿" class="cover-img">
+    </div>
+  </div>
+</div>
+
+<!-- container 內的內容 -->
+<div class="container mt-4">
+  <h1>玉旨奉天宮</h1>
+  <p>乾隆年間，有雷姓三兄弟請著雷府千歲金尊來到台灣。一說雷府千歲是他們的先祖（因為同姓雷，所以三兄弟認其為祖，但實際上是不是後人，沒有確切的資料可以考證）。首先落腳的地方是彰化芳苑萬興宮，後來為了除瘟，麥寮雷厝順天宮天上聖母邀請雷府千歲前往，任務圓滿後，便在當地做為配祀神受人供奉。不過本廟雷王並非從此而來，只是有其歷史淵源。<br><br>
+    由來是當時萬興宮的康王與雷王領旨濟世，先後來到台中太平，康王先抓了一個康姓人家為乩，開始在其家中辦事，後康王替雷王傳達，雷王也欲在此抓乩，眾法師觀了一個多月的手轎，苦無結果。其中一位法師實在是累得受不了，直接跟雷王點明：「若祢這尊神祇有靈感，就自己找出這個人！」於是手轎往桌上一敲，寫出了祂所選之人的名字（陳賜貴，如今仙逝，由雷王舉薦，玉皇大天尊敕封為巡天元帥，為雷王駕前先鋒官）。<br><br>
+    據說當晚雷王就直接開始操練祂的乩身，因為還沒正式受到引導，操練的情況有點激烈，附近人士還以為是他們倆夫妻（陳賜貴與其妻子）在吵架，在街上追趕跑跳。雷王也一直出字，表示祂要開口，但是地方上的法師沒人敢替祂開口，只因無法確定祂到底是何方神聖。<br><br>
+    接著輾轉請到了一位來自彰化埤頭的資深老先生（已故，是本宮小法的師祖，小法傳承自他而來），他向雷王提了幾個天庭與地府為背景的問題（這段細節失傳，真的非常遺憾），確認其為受旨下凡的正神，才替祂開口，並且引導祂、輔助祂，然而初開口時，祂所講皆是眾人聽不懂的官話，也是經過了一番功夫，才讓雷王說出大家能聽懂的閩南話。<br><br>
+    就這樣，兩位王爺先後建立宮廟，在地方上盛行一時，後因種種緣由，雷王換了兩處宮址輾轉至今，於丁酉年（民國106年）受玉旨敕封，晉升代天巡狩總監察一職，封雷天帝王，聖號雷天尊（簡稱）。
+  </p>
+  <div class="text-center my-4">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='god1.jpg') }}" alt="雷天帝王" class="img-fluid rounded mb-2">
+        <div class="text-muted">雷天帝王</div>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='god2.jpg') }}" alt="巡天元帥" class="img-fluid rounded mb-2">
+        <div class="text-muted">巡天元帥</div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center my-4">
+    <img src="{{ url_for('static', filename='temple.jpg') }}" alt="廟宇外觀" class="img-fluid rounded mb-2">
+    <div class="text-muted">廟宇外觀</div>
+  </div>
+  <br>
+  <h1> 最新公告</h1>
+  <ul class="list-group">
+    {% for ann in announcements %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('announcement_detail', announcement_id=ann.id) }}" class="announcement-link mb-0">{{ ann.title }}</a>
+        <small class="text-muted mb-0">{{ ann.timestamp }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

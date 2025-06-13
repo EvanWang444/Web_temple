@@ -1,0 +1,15 @@
+{% extends 'admin_base.html' %}
+{% block title %}管理員登入 - 歡迎{% endblock %}
+{% block content %}
+<div class="text-center mt-5">
+  <h2>歡迎！</h2>
+  <p>您已成功登入網站管理後台！</p>
+  <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+    <a href="{{ url_for('admin_edit_profile', iid=iid) }}" class="btn btn-primary">修改基本資料</a>
+    <a href="{{ url_for('admin_delete_user', iid=iid) }}" class="btn btn-danger" onclick="return confirm('若刪除這個使用者，所有相關記錄將一併刪除，是否繼續？')">刪除使用者</a>
+    <a href="{{ url_for('admin_announcements') }}" class="btn btn-warning">公告管理</a>
+    <a href="{{ url_for('admin_form') }}" class="btn btn-warning">表單管理</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-secondary">登出</a>
+  </div>
+</div>
+{% endblock %}

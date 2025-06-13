@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 神明名稱對齊樣式（flex 換行版＋框線） -->
+<style>
+  .god-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  .god-col {
+    padding: 6px 12px;
+    min-width: 80px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+</style>
+
+<!-- 封面圖區塊 -->
+<div class="cover-escape-wrapper">
+  <div class="cover-wrapper">
+    <div class="cover-blur"></div>
+    <div class="cover-center">
+      <img src="{{ url_for('static', filename='cover.jpg') }}" alt="台中 玉旨奉天宮 雷王殿" class="cover-img">
+    </div>
+  </div>
+</div>
+
+<!-- 正殿神明區 -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">正殿</h2>
+  <div class="god-row">
+    <div class="god-col">雷天三鎮</div>
+    <div class="god-col font-weight-bold">鎮殿雷王</div>
+    <div class="god-col">雷天二鎮</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">開基雷王</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">天上聖母六媽</div>
+    <div class="god-col">天上聖母三媽</div>
+    <div class="god-col">天上聖母大媽</div>
+    <div class="god-col">三官大帝</div>
+    <div class="god-col">如來佛祖</div>
+    <div class="god-col">觀音佛祖</div>
+    <div class="god-col">關聖帝君</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">葉府</div>
+    <div class="god-col">姚府</div>
+    <div class="god-col">田都</div>
+    <div class="god-col">許府</div>
+    <div class="god-col">三尊雷王</div>
+    <div class="god-col">張府</div>
+    <div class="god-col">蕭府</div>
+    <div class="god-col">南府</div>
+    <div class="god-col">包府</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">福德正神</div>
+    <div class="god-col">大聖爺</div>
+    <div class="god-col">文財神</div>
+    <div class="god-col">伏虎禪師</div>
+    <div class="god-col">金吒太子</div>
+    <div class="god-col">中壇元帥</div>
+    <div class="god-col">木吒太子</div>
+    <div class="god-col">降龍禪師</div>
+    <div class="god-col">泉州富美宮雷王</div>
+    <div class="god-col">八卦祖師</div>
+    <div class="god-col">關聖帝君</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">劍將軍</div>
+    <div class="god-col">印將軍</div>
+  </div>
+</div>
+
+<!-- 龍邊殿 -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">龍邊殿</h2>
+  <div class="god-row">
+    <div class="god-col">武財神</div>
+    <div class="god-col">玄天上帝</div>
+    <div class="god-col">文昌帝君</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">呂山法主</div>
+    <div class="god-col">臨水夫人</div>
+  </div>
+</div>
+
+<!-- 虎邊殿 -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">虎邊殿</h2>
+  <div class="god-row">
+    <div class="god-col">開基巡天元帥</div>
+    <div class="god-col">軟身巡天元帥</div>
+    <div class="god-col">五營令</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">中軍府</div>
+    <div class="god-col">班頭</div>
+    <div class="god-col">班兵</div>
+    <div class="god-col">捉拿二大將</div>
+  </div>
+</div>
+
+<!-- 其他神明 -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">其他神明</h2>
+  <div class="god-row">
+    <div class="god-col">虎爺公</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">五營將軍府</div>
+  </div>
+  <div class="god-row">
+    <div class="god-col">坐鎮拜庭上端十八羅漢（龍虎邊各九尊，皆石雕）</div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}

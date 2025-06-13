@@ -1,0 +1,22 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="container py-4">
+  <h2>管理公告</h2>
+  <a href="{{ url_for('create_announcements') }}" class="btn btn-success mb-3">＋ 新增公告</a>
+  <table class="table table-striped">
+    <thead><tr><th>標題</th><th>時間</th><th>操作</th></tr></thead>
+    <tbody>
+      {% for ann in announcements %}
+      <tr>
+        <td>{{ ann.title }}</td>
+        <td>{{ ann.timestamp }}</td>
+        <td>
+          <a href="{{ url_for('edit', announcement_id=ann.id) }}" class="btn btn-sm btn-warning">修改</a>
+          <a href="{{ url_for('delete', announcement_id=ann.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('確定刪除？')">刪除</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
